@@ -25,6 +25,8 @@ export function Login() {
 
       const { user, ...session } = body;
 
+      setIsLoading(false);
+
       updateViewer({ ...user, session });
     } catch (error) {
       if (error instanceof HttpError) {
@@ -35,7 +37,7 @@ export function Login() {
           message: errorRequest.errorBody.message,
         });
       }
-    } finally {
+
       setIsLoading(false);
     }
   };
