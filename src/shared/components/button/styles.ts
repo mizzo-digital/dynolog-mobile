@@ -37,6 +37,5 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
 
 export const Label = styled(Text).attrs(() => ({
   size: 'sm',
-  font: 'button',
-  weight: 'semibold',
+  font: 'button-semibold',
 }))``;

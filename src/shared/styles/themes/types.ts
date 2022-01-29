@@ -28,14 +28,17 @@ export type Theme = {
     };
 
     texts: {
-      headings: {
+      heading: {
         primary: string;
       };
-      body: string;
-      placeholder: string;
-      details: string;
-      button: string;
-      links: string;
+
+      complementary: {
+        body: string;
+        placeholder: string;
+        details: string;
+        button: string;
+        links: string;
+      };
     };
 
     buttons: {

@@ -5,6 +5,5 @@ export const Container = styled.TouchableOpacity``;
 
 export const TextLink = styled(Text).attrs(() => ({
   size: 'xs',
-  font: 'body',
-  weight: 'semibold',
+  font: 'body-semibold',
 }))``;

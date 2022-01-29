@@ -27,14 +27,17 @@ export const darkTheme: Theme = {
     },
 
     texts: {
-      headings: {
+      heading: {
         primary: colors.white,
       },
-      body: colors.white,
-      placeholder: colors.grayLight[500],
-      details: colors.grayLight[500],
-      button: colors.white,
-      links: colors.blue[500],
+
+      complementary: {
+        body: colors.white,
+        placeholder: colors.grayLight[500],
+        details: colors.grayLight[500],
+        button: colors.white,
+        links: colors.blue[500],
+      },
     },
 
     buttons: {

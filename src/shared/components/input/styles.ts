@@ -20,15 +20,15 @@ export const Container = styled.View`
 `;
 
 export const TextInput = styled.TextInput.attrs(({ theme }) => ({
-  placeholderTextColor: theme.colors.texts.placeholder,
+  placeholderTextColor: theme.colors.texts.complementary.placeholder,
 }))`
   ${({ theme }) => css`
     flex: 1;
     height: 100%;
 
-    color: ${theme.colors.texts.body};
-    font-family: ${theme.typography.fonts.input};
-    font-size: ${theme.typography.fontSizes.sm};
+    color: ${theme.colors.texts.complementary.body};
+    font-family: ${theme.typography.complementary.fonts['input-regular']};
+    font-size: ${theme.typography.complementary.fontSizes.sm};
   `}
 `;
 
@@ -43,8 +43,7 @@ export const ShowPassword = styled.TouchableOpacity`
 `;
 
 export const ShowPasswordLabel = styled(Text).attrs(() => ({
-  font: 'input',
+  font: 'input-medium',
   size: 'xs',
   color: 'details',
-  weight: 'medium',
 }))``;

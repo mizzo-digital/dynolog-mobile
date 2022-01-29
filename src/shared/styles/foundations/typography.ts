@@ -1,34 +1,49 @@
+const FONT_SIZE_BASE = 4;
+const LINE_HEIGHT_BASE = 4;
+
 export const typography = {
-  fontSizes: {
-    xs: '12px',
-    sm: '14px',
-    md: '16px',
-    lg: '20px',
+  heading: {
+    fontSizes: {
+      sm: `${3.5 * FONT_SIZE_BASE}px`,
+      md: `${4 * FONT_SIZE_BASE}px`,
+      lg: `${5 * FONT_SIZE_BASE}px`,
+    },
+
+    lineHeights: {
+      sm: `${6 * LINE_HEIGHT_BASE}px`,
+      md: `${6.5 * LINE_HEIGHT_BASE}px`,
+      lg: `${7.5 * LINE_HEIGHT_BASE}px`,
+    },
+
+    fonts: {
+      'primary-regular': 'Poppins-Regular',
+      'primary-medium': 'Poppins-Medium',
+    },
   },
 
-  fontWeights: {
-    hairline: 100,
-    thin: 200,
-    light: 300,
-    regular: 400,
-    medium: 500,
-    semibold: 600,
-    bold: 700,
-    extrabold: 800,
-    black: 900,
-  },
+  complementary: {
+    fontSizes: {
+      xs: `${3 * FONT_SIZE_BASE}px`,
+      sm: `${3.5 * FONT_SIZE_BASE}px`,
+      md: `${4 * FONT_SIZE_BASE}px`,
+      lg: `${5 * FONT_SIZE_BASE}px`,
+    },
 
-  lineHeights: {
-    xs: '20px',
-    sm: '24px',
-    md: '26px',
-    lg: '30px',
-  },
+    lineHeights: {
+      xs: `${5 * LINE_HEIGHT_BASE}px`,
+      sm: `${6 * LINE_HEIGHT_BASE}px`,
+      md: `${6.5 * LINE_HEIGHT_BASE}px`,
+      lg: `${7.5 * LINE_HEIGHT_BASE}px`,
+    },
 
-  fonts: {
-    heading: 'Poppins-Medium',
-    input: 'Poppins-Regular',
-    button: 'Poppins-SemiBold',
-    body: 'OpenSans-Regular',
+    fonts: {
+      'input-regular': 'Poppins-Regular',
+      'input-medium': 'Poppins-Medium',
+
+      'button-semibold': 'Poppins-SemiBold',
+
+      'body-regular': 'OpenSans-Regular',
+      'body-semibold': 'OpenSans-SemiBold',
+    },
   },
 };

@@ -5,33 +5,25 @@ import { Theme } from '../../styles/themes/types';
 
 import * as S from './styles';
 
-export type Sizes = keyof Theme['typography']['fontSizes'];
-export type Fonts = keyof Theme['typography']['fonts'];
-export type Colors = Exclude<keyof Theme['colors']['texts'], 'headings'>;
-export type Weights = keyof Theme['typography']['fontWeights'];
+export type Sizes = keyof Theme['typography']['complementary']['fontSizes'];
+export type Fonts = keyof Theme['typography']['complementary']['fonts'];
+export type Colors = keyof Theme['colors']['texts']['complementary'];
 
 type Props = TextProps & {
-  size: Sizes;
-  font: Fonts;
+  size?: Sizes;
+  font?: Fonts;
   color?: Colors;
-  weight?: Weights;
 };
 
 export function Text({
-  size,
-  font,
+  size = 'sm',
+  font = 'body-regular',
   color = 'body',
-  weight = 'regular',
   children,
   ...rest
 }: PropsWithChildren<Props>) {
   return (
-    <S.Container
-      color={color}
-      size={size}
-      font={font}
-      weight={weight}
-      {...rest}>
+    <S.Container color={color} size={size} font={font} {...rest}>
       {children}
     </S.Container>
   );

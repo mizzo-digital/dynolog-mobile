@@ -1,29 +1,29 @@
 import React, { PropsWithChildren } from 'react';
 import { TextProps } from 'react-native';
 
-import { Theme } from '../../styles/themes/types';
+import { Theme } from '../../styles/themes';
 
 import * as S from './styles';
 
-export type Sizes = keyof Theme['typography']['fontSizes'];
-export type Colors = keyof Theme['colors']['texts']['headings'];
-export type Weights = keyof Theme['typography']['fontWeights'];
+export type Sizes = keyof Theme['typography']['heading']['fontSizes'];
+export type Colors = keyof Theme['colors']['texts']['heading'];
+export type Fonts = keyof Theme['typography']['heading']['fonts'];
 
 type Props = TextProps & {
-  size: Sizes;
+  size?: Sizes;
+  font?: Fonts;
   color?: Colors;
-  weight?: Weights;
 };
 
 export function Heading({
-  size,
+  size = 'md',
   color = 'primary',
-  weight = 'medium',
+  font = 'primary-medium',
   children,
   ...rest
 }: PropsWithChildren<Props>) {
   return (
-    <S.Container color={color} size={size} weight={weight} {...rest}>
+    <S.Container font={font} color={color} size={size} {...rest}>
       {children}
     </S.Container>
   );

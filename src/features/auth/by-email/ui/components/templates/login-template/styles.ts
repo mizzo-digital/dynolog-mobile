@@ -17,8 +17,8 @@ export const Button = styled(ButtonComponent)`
 `;
 
 export const Subheading = styled(Heading).attrs(() => ({
+  font: 'primary-regular',
   size: 'md',
-  weight: 'regular',
 }))`
   ${({ theme }) => css`
     margin: ${theme.spacing[1]} 0 ${theme.spacing[6]} 0;
