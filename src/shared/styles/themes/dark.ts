@@ -42,6 +42,7 @@ export const darkTheme: Theme = {
         primary: {
           enabled: colors.blue[500],
           disabled: colors.blueDarkness[300],
+          loading: colors.blue[700],
         },
       },
     },

@@ -43,6 +43,7 @@ export type Theme = {
         primary: {
           enabled: string;
           disabled: string;
+          loading: string;
         };
       };
     };

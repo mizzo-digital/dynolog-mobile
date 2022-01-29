@@ -17,7 +17,10 @@ export function Button({
   ...rest
 }: PropsWithChildren<Props>) {
   return (
-    <S.Container disabled={isLoading || disabled} {...rest}>
+    <S.Container
+      isLoading={isLoading}
+      disabled={isLoading || disabled}
+      {...rest}>
       {isLoading && <Spinner />}
 
       {!isLoading && <S.Label>{children}</S.Label>}

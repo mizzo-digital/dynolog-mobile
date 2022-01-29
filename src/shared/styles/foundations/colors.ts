@@ -3,6 +3,7 @@ export const colors = {
 
   blue: {
     500: '#4663F1',
+    700: '#2238A9',
   },
 
   blueDarkness: {

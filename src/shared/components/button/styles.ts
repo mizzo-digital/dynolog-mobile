@@ -1,7 +1,15 @@
 import styled, { css, DefaultTheme } from 'styled-components/native';
 import { Text } from '..';
 
-const makeBackgroundButton = (theme: DefaultTheme, disabled: boolean) => {
+const makeBackgroundButton = (
+  theme: DefaultTheme,
+  isLoading: boolean,
+  disabled: boolean,
+) => {
+  if (isLoading) {
+    return theme.colors.buttons.solid.primary.loading;
+  }
+
   if (disabled) {
     return theme.colors.buttons.solid.primary.disabled;
   }
@@ -11,17 +19,18 @@ const makeBackgroundButton = (theme: DefaultTheme, disabled: boolean) => {
 
 type ContainerProps = {
   disabled: boolean;
+  isLoading: boolean;
 };
 
 export const Container = styled.TouchableOpacity<ContainerProps>`
-  ${({ theme, disabled }) => css`
+  ${({ theme, disabled, isLoading }) => css`
     width: 100%;
     height: 56px;
 
     justify-content: center;
     align-items: center;
 
-    background: ${makeBackgroundButton(theme, disabled)};
+    background: ${makeBackgroundButton(theme, isLoading, disabled)};
     border-radius: ${theme.radius.md};
   `}
 `;
