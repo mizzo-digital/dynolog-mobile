@@ -30,11 +30,9 @@ export function Login() {
       updateViewer({ ...user, session });
     } catch (error) {
       if (error instanceof HttpError) {
-        const errorRequest = error as HttpError;
-
         addToast({
           type: 'danger',
-          message: errorRequest.errorBody.message,
+          message: error.errorBody.message,
         });
       }
 
