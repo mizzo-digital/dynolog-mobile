@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { ViewProps, StatusBar, SafeAreaView } from 'react-native';
+import { ViewProps, StatusBar } from 'react-native';
 
 import * as S from './styles';
 
