@@ -6,3 +6,4 @@ export { Text } from './text';
 export { Heading } from './heading';
 export { Avatar } from './avatar';
 export { Divider } from './divider';
+export { Header } from './header';

@@ -1,20 +1,21 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { useViewerStore, useViewerActions } from '../../../../entities/viewer';
+import { useViewerActions, useViewerStore } from '../../../../entities/viewer';
 
-import { Button } from '../../../../shared/components';
+import { Button, Header } from '../../../../shared/components';
 
 import * as S from './styles';
 
 export function Home() {
-  const userName = useViewerStore(store => store.name);
   const { logoutViewer } = useViewerActions();
+  const userName = useViewerStore(store => store.name);
 
   return (
     <S.Container>
-      <Text>{userName}</Text>
+      <Header userName={userName || ''} />
 
-      <Button onPress={logoutViewer}>Deslogar</Button>
+      <Button style={{ marginTop: 80 }} onPress={logoutViewer}>
+        Deslogar
+      </Button>
     </S.Container>
   );
 }
