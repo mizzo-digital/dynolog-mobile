@@ -1,1 +1,1 @@
-export * from './login-template';
+export { LoginTemplate } from './login-template';

@@ -1,3 +1,3 @@
-export * from './http-error';
-export * from './http-response';
-export * from './http-status-code';
+export { HttpError } from './http-error';
+export { HttpResponse } from './http-response';
+export { HttpStatusCode } from './http-status-code';

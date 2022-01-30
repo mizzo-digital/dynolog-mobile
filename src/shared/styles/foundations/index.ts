@@ -1,4 +1,4 @@
-export * from './colors';
-export * from './radius';
-export * from './typography';
-export * from './spacing';
+export { colors } from './colors';
+export { radius } from './radius';
+export { typography } from './typography';
+export { spacing } from './spacing';

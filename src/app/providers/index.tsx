@@ -7,7 +7,7 @@ type Props = {
   children: ReactNode;
 };
 
-export default function AppProviders({ children }: Props) {
+export function AppProviders({ children }: Props) {
   return (
     <NavigationContainer>
       <ThemeProvider>
