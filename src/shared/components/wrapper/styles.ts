@@ -12,6 +12,9 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
   ],
 }))`
   ${({ theme }) => css`
+    width: 100%;
+    height: 100%;
+
     padding: 0 ${theme.spacing[6]};
   `}
 `;

@@ -14,9 +14,7 @@ export function Wrapper({ children, ...rest }: PropsWithChildren<Props>) {
         backgroundColor="transparent"
       />
 
-      <SafeAreaView>
-        <S.Content {...rest}>{children}</S.Content>
-      </SafeAreaView>
+      <S.Content {...rest}>{children}</S.Content>
     </S.Container>
   );
 }
