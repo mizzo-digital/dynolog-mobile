@@ -34,9 +34,11 @@ export const CreateAccountLink = styled(Link)`
 `;
 
 export const ForgotPasswordLink = styled(Link)`
-  width: 100%;
-  align-items: center;
+  ${({ theme }) => css`
+    width: 100%;
+    align-items: center;
 
-  position: absolute;
-  bottom: 0;
+    position: absolute;
+    bottom: ${theme.spacing[8]};
+  `}
 `;
