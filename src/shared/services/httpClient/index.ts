@@ -1,59 +1,81 @@
 import axios, { AxiosError } from 'axios';
 
-import { API } from '../../configs/api';
-import { HttpResponse, HttpError, HttpStatusCode } from '../../protocols/http';
+import { API_URL } from '../../constants/apiUrl';
+import {
+  HttpError,
+  HttpResponse,
+  HTTP_STATUS_CODE,
+} from '../../protocols/http';
+import { useUserStore as userStore } from '../../../entities/user';
+import {
+  HttpClient,
+  HttpMethodParams,
+  HTTP_METHOD,
+  RequestParams,
+} from './types';
 
-type HttpParamsBase = {
-  url: string;
-  payload?: any;
+const getUserAccessToken = () => {
+  return userStore.getState().user?.session.access_token;
 };
 
-const axiosInstance = axios.create({
-  baseURL: API.DEFAULT.BASE_URL,
+const buildConfigs = (params?: any, headers?: any) => ({
+  params,
+  headers: {
+    authorization: `Bearer ${getUserAccessToken()}`,
+    ...headers,
+  },
 });
 
-const httpPostMethod = async <T>({
-  url,
-  payload,
-}: HttpParamsBase): Promise<HttpResponse<T>> => {
+const requestClient = async <T>(
+  requestParams: RequestParams,
+): Promise<HttpResponse<T>> => {
   try {
-    const { status, data } = await axiosInstance.post(url, payload);
+    const response = await axios({
+      url: `${API_URL.DEFAULT}/${requestParams.url}`,
+      method: requestParams.method,
+      data: requestParams.payload,
+      ...buildConfigs(requestParams.params, requestParams.headers),
+    });
 
     return {
-      statusCode: status,
-      body: data,
+      statusCode: response.status,
+      body: response.data,
     };
-  } catch (error) {
-    const axiosError = error as AxiosError;
+  } catch (err) {
+    const error = err as AxiosError;
 
     throw new HttpError({
-      statusCode: axiosError.response?.status || HttpStatusCode.BAD_REQUEST,
-      errorBody: axiosError.response?.data,
+      statusCode: error.response?.status || HTTP_STATUS_CODE.BAD_REQUEST,
+      body: error.response?.data,
     });
   }
 };
 
-const httpGetMethod = async <T>({
-  url,
-}: Omit<HttpParamsBase, 'payload'>): Promise<HttpResponse<T>> => {
-  try {
-    const { status, data } = await axiosInstance.get(url);
-
-    return {
-      statusCode: status,
-      body: data,
-    };
-  } catch (error) {
-    const axiosError = error as AxiosError;
-
-    throw new HttpError({
-      statusCode: axiosError.response?.status || HttpStatusCode.BAD_REQUEST,
-      errorBody: axiosError.response?.data,
+export const httpClient: HttpClient = {
+  get: async <T>(params: HttpMethodParams.Get): Promise<HttpResponse<T>> => {
+    const requestResponse = await requestClient<T>({
+      method: HTTP_METHOD.GET,
+      ...params,
     });
-  }
-};
 
-export const httpClient = {
-  post: httpPostMethod,
-  get: httpGetMethod,
+    return requestResponse;
+  },
+
+  post: async <T>(params: HttpMethodParams.Post): Promise<HttpResponse<T>> => {
+    const requestResponse = await requestClient<T>({
+      method: HTTP_METHOD.POST,
+      ...params,
+    });
+
+    return requestResponse;
+  },
+
+  put: async <T>(params: HttpMethodParams.Put): Promise<HttpResponse<T>> => {
+    const requestResponse = await requestClient<T>({
+      method: HTTP_METHOD.PUT,
+      ...params,
+    });
+
+    return requestResponse;
+  },
 };

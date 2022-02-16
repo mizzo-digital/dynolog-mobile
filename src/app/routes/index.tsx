@@ -2,10 +2,10 @@ import React from 'react';
 
 import { AuthRoutes } from './auth.routes';
 import { AppRoutes } from './app.routes';
-import { useViewerStore } from '../../entities/viewer';
+import { useAuth } from '../../features/auth';
 
 export function Routes() {
-  const isAuthenticated = useViewerStore(store => store.session);
+  const { isLogged } = useAuth();
 
-  return !isAuthenticated ? <AuthRoutes /> : <AppRoutes />;
+  return isLogged ? <AppRoutes /> : <AuthRoutes />;
 }

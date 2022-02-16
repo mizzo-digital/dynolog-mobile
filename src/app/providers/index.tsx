@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { ToastProvider, ThemeProvider } from '../../shared/providers';
+import { ToastProvider } from '../../shared/providers';
+import { ThemeProvider } from '../../features/theme';
 
 type Props = {
   children: ReactNode;

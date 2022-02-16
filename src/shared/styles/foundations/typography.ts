@@ -16,8 +16,9 @@ export const typography = {
     },
 
     fonts: {
-      'primary-regular': 'Poppins-Regular',
-      'primary-medium': 'Poppins-Medium',
+      'heading-primary-regular': 'Poppins-Regular',
+      'heading-primary-medium': 'Poppins-Medium',
+      'heading-primary-bold': 'Poppins-Bold',
     },
   },
 
@@ -37,13 +38,17 @@ export const typography = {
     },
 
     fonts: {
-      'input-regular': 'Poppins-Regular',
-      'input-medium': 'Poppins-Medium',
+      'input-primary-regular': 'Poppins-Regular',
+      'input-primary-medium': 'Poppins-Medium',
 
-      'button-semibold': 'Poppins-SemiBold',
+      'button-primary-semibold': 'Poppins-SemiBold',
 
-      'body-regular': 'OpenSans-Regular',
-      'body-semibold': 'OpenSans-SemiBold',
+      'body-primary-regular': 'OpenSans-Regular',
+      'body-primary-semibold': 'OpenSans-SemiBold',
+
+      'body-secondary-regular': 'Poppins-Regular',
+      'body-secondary-medium': 'Poppins-Medium',
+      'body-secondary-bold': 'Poppins-Bold',
     },
   },
 };
