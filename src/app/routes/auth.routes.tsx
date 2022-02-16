@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Login } from '../../features/auth/by-email/ui/pages/login';
+import { Login } from '../../pages/login';
 
 const AuthStack = createNativeStackNavigator();
 

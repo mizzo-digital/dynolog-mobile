@@ -1,18 +1,18 @@
 interface HttpErrorProps {
   readonly statusCode: number;
-  readonly errorBody: string;
+  readonly body: string;
 }
 
 export class HttpError extends Error {
   readonly statusCode: number;
 
-  readonly errorBody: any;
+  readonly body: any;
 
-  constructor({ statusCode, errorBody }: HttpErrorProps) {
+  constructor({ statusCode, body }: HttpErrorProps) {
     super('Request Error');
 
     this.name = 'HttpError';
     this.statusCode = statusCode;
-    this.errorBody = errorBody;
+    this.body = body;
   }
 }
