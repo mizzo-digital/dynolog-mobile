@@ -15,7 +15,7 @@ import {
 } from './types';
 
 const getUserAccessToken = () => {
-  return userStore.getState().user?.session.access_token;
+  return userStore.getState().user?.session.accessToken;
 };
 
 const buildConfigs = (params?: any, headers?: any) => ({

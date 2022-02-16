@@ -4,10 +4,9 @@ import { Props } from './types';
 
 export const updateTimeEntry = async (props: Props) => {
   const payload = {
-    description: props.description,
+    ...props,
     start: props.startDate,
     stop: props.stopDate,
-    projectId: props.projectId,
   };
 
   const updatedTimeEntry = await httpClient.put<TimeEntry>({
