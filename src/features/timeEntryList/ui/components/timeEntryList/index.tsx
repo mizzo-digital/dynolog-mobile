@@ -14,7 +14,9 @@ import * as S from './styles';
 export function TimeEntryList() {
   const userId = useUserStore(store => store.user?.id);
   const timeEntries = useTimeEntriesStore(store => store.timeEntries);
-  const syncStoreTimeEntries = useTimeEntriesStore(store => store.syncStoreTimeEntries);
+  const syncStoreTimeEntries = useTimeEntriesStore(
+    store => store.syncStoreTimeEntries,
+  );
 
   const { runAsync, statuses, ASSYNC_STATUS } = useAsync();
 
