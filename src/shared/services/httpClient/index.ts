@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosError } from 'axios';
 
 import { API_URL } from '../../constants/apiUrl';

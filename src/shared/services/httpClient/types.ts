@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpResponse } from '../../protocols/http';
 
 export type HttpParamsBase = {
