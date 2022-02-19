@@ -6,6 +6,7 @@ type LoadStorageProps = {
 
 type SetStorageProps<T> = {
   key: string;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   value: Exclude<T, Function>;
 };
 
