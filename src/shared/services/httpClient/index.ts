@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosError } from 'axios';
 
 import { API_URL } from '../../constants/apiUrl';
@@ -19,7 +18,7 @@ const getUserAccessToken = () => {
   return userStore.getState().user?.session.accessToken;
 };
 
-const buildConfigs = (params?: any, headers?: any) => ({
+const buildConfigs = (params?: object, headers?: object) => ({
   params,
   headers: {
     authorization: `Bearer ${getUserAccessToken()}`,

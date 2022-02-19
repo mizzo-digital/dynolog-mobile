@@ -8,6 +8,8 @@ type Credentials = {
   password: string;
 };
 
+type LoginError = { message: string };
+
 export const useAuth = () => {
   const { addToast } = useToast();
   const { runAsync, statuses, ASSYNC_STATUS } = useAsync();
@@ -23,7 +25,7 @@ export const useAuth = () => {
     );
 
     if (error || !data) {
-      const loginError = error as HttpError;
+      const loginError = error as HttpError<LoginError>;
       const errorMessage = loginError.body.message;
 
       addToast({
