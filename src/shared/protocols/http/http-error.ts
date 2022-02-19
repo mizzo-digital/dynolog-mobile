@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface HttpErrorProps {
   readonly statusCode: number;
   readonly body: string;
