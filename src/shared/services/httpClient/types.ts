@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpResponse } from '../../protocols/http';
 
 export type HttpParamsBase = {
   url: string;
-  payload?: any;
-  params?: any;
-  headers?: any;
+  payload?: object;
+  params?: object;
+  headers?: object;
 };
 
 export enum HTTP_METHOD {

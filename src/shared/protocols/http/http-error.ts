@@ -1,15 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-interface HttpErrorProps {
+interface HttpErrorProps<ErrorType = unknown> {
   readonly statusCode: number;
-  readonly body: string;
+  readonly body: ErrorType;
 }
 
-export class HttpError extends Error {
+export class HttpError<ErrorType = unknown> extends Error {
   readonly statusCode: number;
 
-  readonly body: any;
+  readonly body: ErrorType;
 
-  constructor({ statusCode, body }: HttpErrorProps) {
+  constructor({ statusCode, body }: HttpErrorProps<ErrorType>) {
     super('Request Error');
 
     this.name = 'HttpError';
