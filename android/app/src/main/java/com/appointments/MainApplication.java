@@ -1,5 +1,8 @@
 package com.appointments;
 
+import com.facebook.react.bridge.JSIModulePackage; // <- Added to Reanimated
+import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- Added to Reanimated
+
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -10,9 +13,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-
-import com.facebook.react.bridge.JSIModulePackage; // <- Reanimated
-import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- Reanimated
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -38,8 +38,8 @@ public class MainApplication extends Application implements ReactApplication {
         }
 
         @Override
-        protected JSIModulePackage getJSIModulePackage() { // <- Reanimated
-          return new ReanimatedJSIModulePackage();
+        protected JSIModulePackage getJSIModulePackage() { // <- Added to Reanimated
+          return new ReanimatedJSIModulePackage(); // <- add
         }
       };
 

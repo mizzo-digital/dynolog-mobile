@@ -39,7 +39,8 @@ export function LoginTemplate() {
 
       <S.Button
         isLoading={loginIsLoading}
-        onPress={() => handleLogin({ email, password })}>
+        onPress={() => handleLogin({ email, password })}
+      >
         Entrar
       </S.Button>
 

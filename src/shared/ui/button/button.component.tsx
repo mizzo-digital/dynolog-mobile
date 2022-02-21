@@ -41,10 +41,12 @@ export function Button({ children, ...props }: ButtonProps) {
   }));
 
   const handlePress = () => {
+    if (!props.onPress) return;
+
     setIsLoading(true);
 
     setTimeout(() => {
-      props.onPress();
+      props.onPress?.();
     }, LOADING_ANIMATION_DELAY);
   };
 
@@ -79,11 +81,13 @@ export function Button({ children, ...props }: ButtonProps) {
         const { width, height } = nativeEvent.layout;
 
         containerSize.current = { width, height };
-      }}>
+      }}
+    >
       <ButtonWrapper
         onPress={handlePress}
         style={loadingAnimationStyle}
-        disabled={isLoading || props.disabled}>
+        disabled={isLoading || props.disabled}
+      >
         {isLoading ? <Spinner /> : <S.Label>{children}</S.Label>}
       </ButtonWrapper>
     </S.Container>
